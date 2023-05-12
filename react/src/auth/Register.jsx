@@ -8,7 +8,6 @@ import './Register.css';
 import { useForm } from "react-hook-form";
 
 const Register = ({ setLogin }) => {
-  let [formulari, setFormulari] = useState({});
   let [error, setError] = useState("");
   let { authToken, setAuthToken } = useContext(UserContext);
 
@@ -29,7 +28,6 @@ const Register = ({ setLogin }) => {
           "Content-Type": "application/json"
         },
         method: "POST",
-        // Si els noms i les variables coincideix, podem simplificar
         body: JSON.stringify({ name, email, password })
       });
       const resposta = await data.json();
@@ -49,8 +47,24 @@ const Register = ({ setLogin }) => {
     <div className="login-container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <img className="logo" src="/images/filmcompany.png" alt="Logo" />
-
         <label className="labelLogin" for="form2Example1">Register</label>
+        
+        <div className="form-outline mb-4">
+          <label className="label" for="form3Example3cg">Your Name</label>
+          <br></br>
+          <input  {...register("name", {
+            required: "Aquest camp és obligatori",
+            pattern: {
+              value: /^[a-zA-Z0-9._%+-]/,
+              message:
+                "Introdueix un nom"
+            }
+          })}
+            className="form-control form-control-lg"
+          />
+          {errors.name && <p>{errors.name.message}</p>}
+
+        </div>
 
         <div className="form-outline mb-4">
           <label className="label" for="form3Example3cg">Your Email</label>
@@ -68,8 +82,8 @@ const Register = ({ setLogin }) => {
           {errors.email && <p>{errors.email.message}</p>}
 
         </div>
-        <label className="form-label" for="form2Example2">Password</label>
-        <div className="form-outline mb-4">
+        <label className="form" for="form2Example2">Password</label>
+        <div className="not">
           <input  {...register("password", {
             required: "Aquest camp és obligatori",
             minLength: {
@@ -97,9 +111,10 @@ const Register = ({ setLogin }) => {
             className="form-control form-control-lg"
           />
         </div>
-        <div className="d-flex justify-content-center">
-          <input type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body" />
-        </div>
+        <div>
+        <button type="button" className="sign"
+                    onClick={handleSubmit(onSubmit)}
+                >Sign in</button>        </div>
         {error ? (<div>{error}</div>) : (<></>)}
 
         <p className="not">Have already an account? <a href="#!"

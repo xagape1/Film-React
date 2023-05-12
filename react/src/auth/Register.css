@@ -66,6 +66,9 @@ label {
   text-align: start;
 }
 
+
+input[type='email'],
+input[type='password'],
 input[type='email'] {
   font-size: 1.5rem;
   padding: 5px;
@@ -76,7 +79,8 @@ input[type='email'] {
   width: 100%;
   margin-bottom: 10px;
 }
-input[type='password'] {
+
+input {
   font-size: 1.5rem;
   padding: 5px;
   border-radius: 5px;
@@ -86,6 +90,8 @@ input[type='password'] {
   width: 100%;
   margin-bottom: 10px;
 }
+
+
 
 
 .sign {
