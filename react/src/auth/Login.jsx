@@ -21,8 +21,9 @@ const Login = () => {
 
     return (
         <div className="login-container">
-            <h2 class="loginh2">Login</h2>
             <form onSubmit={handleSubmit}>
+                <img class="logo" src="/images/filmcompany.png" alt="Logo" />
+                <label class="labelLogin">Login</label>
                 <div className="form-group">
                     <label htmlFor="email">Email:</label>
                     <input type="email" id="email" value={email} onChange={handleEmailChange} />
