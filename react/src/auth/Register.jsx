@@ -2,10 +2,8 @@ import React from 'react'
 import { useState } from "react";
 import { useContext } from "react";
 import { UserContext } from "../userContext";
-//import { useForm } from '../hooks/useForm';
-import './Register.css';
-
 import { useForm } from "react-hook-form";
+import './Register.css';
 
 const Register = ({ setLogin }) => {
   let [error, setError] = useState("");
@@ -46,7 +44,6 @@ const Register = ({ setLogin }) => {
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <img className="logo" src="/images/filmcompany.png" alt="Logo" />
         <label className="labelLogin" for="form2Example1">Register</label>
         
         <div className="form-outline mb-4">
@@ -96,7 +93,7 @@ const Register = ({ setLogin }) => {
                 "La contrasenya ha de contenir al menys una minúscula, una majúscula, un número i un caracter especial"
             }
           })}
-            type="password" id="form3Example4cg"
+            id="form3Example4cg"
             className="form-control form-control-lg"
           />
 
@@ -107,21 +104,23 @@ const Register = ({ setLogin }) => {
 
         <div className="form-outline mb-4">
           <input {...register("password2")}
-            type="password" id="form3Example4cdg"
+            id="form3Example4cdg"
             className="form-control form-control-lg"
           />
         </div>
         <div>
-        <button type="button" className="sign"
-                    onClick={handleSubmit(onSubmit)}
-                >Sign in</button>        </div>
-        {error ? (<div>{error}</div>) : (<></>)}
-
         <p className="not">Have already an account? <a href="#!"
           onClick={() => {
             setLogin(true)
           }}
         >Login here</a></p>
+        <button type="button" className="sign"
+                    onClick={handleSubmit(onSubmit)}
+                >Sign in</button>        </div>
+        {error ? (<div>{error}</div>) : (<></>)}
+
+        <img className="logo" src="/images/filmcompany.png" alt="Logo" />
+
 
       </form>
 
