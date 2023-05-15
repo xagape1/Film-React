@@ -49,7 +49,7 @@ export const getProfile = (authToken, id) => {
             },
             method: "GET",
         };
-        const url = "http://127.0.0.1:8000/api/profile" + id
+        const url = "http://127.0.0.1:8000/api/profile/" + id;
         const data = await fetch(url, headers);
         const resposta = await data.json();
         if (resposta.success == true) {
@@ -128,24 +128,25 @@ export const getProfiles = (authToken) => {
             },
             method: "GET",
         };
-
-        const data = await fetch(url, headers);
-        const resposta = await data.json();
-        if (resposta.success == true) {
-            if (page > 0) {
-                dispatch(setProfiles(resposta.data.collection));
-                console.log(resposta.data.links);
+        try {
+            const response = await fetch(url, headers);
+            const data = await response.json();
+            if (data.success) {
+                dispatch(setProfiles({ data: data.data }));
+                console.log("AAAAAAAAAAAAAAAAAA");
+                console.log(data);
             } else {
-                dispatch(setProfiles(resposta.data));
+                dispatch(setError(data.message));
             }
+        } catch (error) {
+            dispatch(setError(error.message));
+        } finally {
             dispatch(setisLoading(false));
-            console.log(resposta.data)
-        }
-        else {
-            dispatch(setError(resposta.message));
         }
     };
-}
+};
+
+
 
 /*
 

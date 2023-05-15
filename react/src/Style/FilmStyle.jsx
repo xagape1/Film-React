@@ -1,12 +1,17 @@
 import { FaUser, FaCreditCard } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import './FilmStyle.css';
+import ProfilesGrid from '../Profiles/ProfilesGrid';
 
 function FilmStyle() {
   const navigate = useNavigate();
 
   const handlePaymentClick = () => {
     navigate('/payments');
+  }
+  const handleProfilesClick = () => {
+    console.log("clicas")
+    navigate('/profiles');
   }
 
   return (
@@ -22,9 +27,9 @@ function FilmStyle() {
             <FaCreditCard className="netflix-icon" />
             Pagar subscripción
           </button>
-          <button className="netflix-btn">
+          <button className="netflix-btn" onClick={handleProfilesClick}>
             <FaUser className="netflix-icon" />
-            Seleccionar perfil
+            Profiles
           </button>
         </div>
       </div>

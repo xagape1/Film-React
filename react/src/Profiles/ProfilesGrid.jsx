@@ -1,5 +1,5 @@
 import React from 'react'
-import { useContext,useState,useEffect, } from "react";
+import { useContext, useState, useEffect, } from "react";
 import { UserContext } from "../userContext";
 import { useParams } from 'react-router-dom';
 import ProfileGrid from './ProfileGrid';
@@ -16,7 +16,7 @@ const ProfilesGrid = () => {
   // let [posts, setPosts] = useState([]);
   let dispatch = useDispatch();
   // const [refresh, setRefresh] = useState(false)
-  const { profiles=[], isLoading=true} = useSelector((state) => state.profiles)
+  const { profiles = [], isLoading = true } = useSelector((state) => state.profiles)
 
   // const { data, /*error, */reRender, loading, setUrl } = useFetch("https://backend.insjoaquimmir.cat/api/posts/", {
   //   headers: {
@@ -28,13 +28,11 @@ const ProfilesGrid = () => {
   // });
 
   useEffect(() => {
-    dispatch(getProfiles(authToken))
-  }, []);
+    console.log("useEffect called");
+    dispatch(getProfiles(authToken));
+  }, [authToken, dispatch]);
 
-  useEffect(() => {
-    console.log(page)
-    dispatch(getProfiles(authToken))
-  }, []);
+
 
   // const deletePost = async (id) => {
   //   try {
@@ -62,15 +60,29 @@ const ProfilesGrid = () => {
   return (
     <div>
       <h1>Profiles Grid</h1>
-        {isLoading ?
-          "Cargando perfils.." :
-          profiles.map((profile) => (
-          <tr key={profile.id}>
-              <ProfileGrid profile={profile} />
-          </tr>
-        ))}
+      {isLoading ?
+        "Load Profiles.." :
+        <table>
+          <head>
+            <tr>
+              <th>Name</th>
+            </tr>
+          </head>
+          <body>
+            {Array.isArray(profiles) ?
+              profiles.map((profile) => (
+                <tr key={profile.id}>
+                  <ProfileGrid profile={profile} />
+                </tr>
+              )) :
+              <p>No hay perfiles disponibles</p>
+            }
+          </body>
+        </table>
+      }
     </div>
-  )
+  );
+
 }
 
 export default ProfilesGrid

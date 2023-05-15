@@ -11,8 +11,9 @@ import ProfilesGrid from './Profiles/ProfilesGrid';
 import { Provider } from 'react-redux';
 import FilmStyle from './Style/FilmStyle';
 import Payments from './Style/Payments';
-function App() {
+import { store } from './store';
 
+function App() {
   let [authToken, setAuthToken] = useState("");
   let [usuari, setUsuari] = useState("");
   let [refresh, setRefresh] = useState(false);
@@ -21,27 +22,28 @@ function App() {
   return (
     <BrowserRouter>
       <UserContext.Provider value={{ refresh, setRefresh, usuari, setUsuari, authToken, setAuthToken, usuariId, setUsuariId }}>
-        {authToken ?
-          <>
-            <Header />
-            <Routes>
-              <Route path="*" element={<NotFound />} />
-              <Route path="/" element={<FilmStyle />} />
-              <Route path="/profiles/create" element={<ProfileCreate />} />
-              <Route path="/profiles/" element={<ProfilesGrid />} />
+        <Provider store={store}>
+          {authToken ?
+            <>
+              <Header />
+              <Routes>
+                <Route path="*" element={<NotFound />} />
+                <Route path="/" element={<FilmStyle />} />
+                <Route path="/profiles" element={<ProfilesGrid />} />
+                <Route path="/profiles/create" element={<ProfileCreate />} />
 
-              <Route path="/payments/" element={<Payments />} />
-              <Route path="/film/" element={<FilmStyle />} />
-            </Routes>
-            <Footer />
-          </>
-          :
-          <LoginRegister />
-        }
+                <Route path="/payments/" element={<Payments />} />
+                <Route path="/film/" element={<FilmStyle />} />
+              </Routes>
+              <Footer />
+            </>
+            :
+            <LoginRegister />
+          }
+        </Provider>
       </UserContext.Provider>
     </BrowserRouter>
   );
 }
-
 
 export default App
