@@ -1,15 +1,18 @@
-import React from 'react'
-import { useContext } from "react";
-import { UserContext } from "../userContext";
+import React from 'react';
+import "./Footer.css"
 
-const Footer = () => {  
-  let { authToken, setAuthToken } = useContext(UserContext);
-
+const Footer = () => {
   return (
-    <div>
-       SOY EL FOOTER.
+    <div className="footer">
+      <p>Preguntas? Llama al 1-800-123-4567</p>
+      <div>
+        <a href="#">Preguntas frecuentes</a>
+        <a href="#">Centro de ayuda</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Privacidad</a>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

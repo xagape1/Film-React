@@ -6,8 +6,11 @@ import { UserContext } from "./userContext";
 import Header from './Layout/Header';
 import Footer from './Layout/Footer';
 import NotFound from "./NotFound";
-import About from "./About";
-
+import ProfileCreate from './Profiles/ProfileCreate';
+import ProfilesGrid from './Profiles/ProfilesGrid';
+import { Provider } from 'react-redux';
+import FilmStyle from './Style/FilmStyle';
+import Payments from './Style/Payments';
 function App() {
 
   let [authToken, setAuthToken] = useState("");
@@ -23,8 +26,12 @@ function App() {
             <Header />
             <Routes>
               <Route path="*" element={<NotFound />} />
-              <Route path="/" element={<About />} />
-              <Route path="/about" element={<About />} />
+              <Route path="/" element={<FilmStyle />} />
+              <Route path="/profiles/create" element={<ProfileCreate />} />
+              <Route path="/profiles/" element={<ProfilesGrid />} />
+
+              <Route path="/payments/" element={<Payments />} />
+              <Route path="/film/" element={<FilmStyle />} />
             </Routes>
             <Footer />
           </>

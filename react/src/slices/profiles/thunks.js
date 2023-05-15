@@ -1,4 +1,4 @@
-import { setisSaving, setisLoading, setError, setProfile, setProfiles } from "./placeSlice"
+import { setisSaving, setisLoading, setError, setProfile, setProfiles } from "./profileSlice"
 
 export const addProfile = (data2, authToken, navigate) => {
     return async (dispatch, getState) => {
@@ -26,7 +26,6 @@ export const addProfile = (data2, authToken, navigate) => {
             console.log("profile creado: " + resposta.data)
             dispatch(setisSaving(false))
 
-            // dispatch(setPlaces(resposta.data));
             navigate("/profiles/" + resposta.data.id)
 
         }

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 import { useSelector, useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
-import { addPost, addProfile } from '../slices/profiles/thunks';
+import { addProfile } from '../slices/profiles/thunks';
 
 const ProfileCreate = () => {
     const dispatch = useDispatch();
@@ -85,7 +85,7 @@ const ProfileCreate = () => {
                     <h1 className="text-center h2 fw-bold">Crear Profile</h1>
 
                 </div >
-                <form method="post" className="separar " action="{{ route('posts.store') }}" enctype="multipart/form-data">
+                <form method="post" className="separar " action="{{ route('profiles.store') }}" enctype="multipart/form-data">
                     <div className="form-group">
                         <label for="name">Name</label>
                         <input type="text" value={formulari.name} onChange={handleChange} name="name" className="form-control" />
