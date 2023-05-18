@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../userContext";
 import { useParams } from 'react-router-dom';
 import ProfileGrid from './ProfileGrid';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -17,6 +17,11 @@ const ProfilesGrid = () => {
   useEffect(() => {
     dispatch(getProfiles(authToken));
   }, [authToken, dispatch]);
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -44,6 +49,7 @@ const ProfilesGrid = () => {
           </tbody>
         </table>
       }
+      <button className="btn btn-primary" type="submit" onClick={handleBackClick} >Go Back</button>
     </div>
   );
 }

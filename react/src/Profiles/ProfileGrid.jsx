@@ -19,6 +19,7 @@ const ProfileGrid = ({ profile, deleteProfile }) => {
           <div className="veureeditaresborrar"><button onClick={(e) => { navigate("/profiles/" + profile.id) }}>veure</button>
             <button onClick={(e) => { navigate("/profiles/edit/" + profile.id) }}>editar</button>
             <button onClick={(e) => { deleteProfile(profile.id) }} >Borrar</button>
+
           </div>
         </div>
       </div>

@@ -10,7 +10,6 @@ function FilmStyle() {
     navigate('/payments');
   }
   const handleProfilesClick = () => {
-    console.log("clicas")
     navigate('/profiles');
   }
 
@@ -21,7 +20,7 @@ function FilmStyle() {
       </div>
       <div className="netflix-body">
         <h1>Películas y series ilimitadas y mucho más.</h1>
-        <p>Disfruta donde quieras. Cancela cuando quieras.</p>
+        <p>Disfruta donde quieras.</p>
         <div className="netflix-buttons">
           <button className="netflix-btn" onClick={handlePaymentClick}>
             <FaCreditCard className="netflix-icon" />
