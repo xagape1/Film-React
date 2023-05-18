@@ -11,7 +11,7 @@ const initialState = {
 
     profiles:[],
 
-    profiles:{ 
+    profile:{ 
         name: ""
     },
     

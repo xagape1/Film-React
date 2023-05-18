@@ -132,8 +132,8 @@ export const getProfiles = (authToken) => {
             const response = await fetch(url, headers);
             const data = await response.json();
             if (data.success) {
-                dispatch(setProfiles({ data: data.data }));
                 console.log("AAAAAAAAAAAAAAAAAA");
+                dispatch(setProfiles(data.data));
                 console.log(data);
             } else {
                 dispatch(setError(data.message));
