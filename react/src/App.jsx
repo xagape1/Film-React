@@ -32,7 +32,7 @@ function App() {
                 <Route path="/profiles" element={<ProfilesGrid />} />
                 <Route path="/profiles/create" element={<ProfileCreate />} />
 
-                <Route path="/menu" element={<ProfileCreate />} />
+                <Route path="/menu" element={<Menu />} />
                 
                 <Route path="/payments/" element={<Payments />} />
                 <Route path="/film/" element={<FilmStyle />} />

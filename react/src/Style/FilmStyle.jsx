@@ -17,10 +17,9 @@ function FilmStyle() {
   return (
 
     <div className="netflix-container">
+      <Header></Header>
+
       <div className="netflix-header">
-        <div className='texto-derecha'>
-          <Header></Header>
-        </div>
         <img className="logoo" src="/images/filmcompany.png" alt="Film Logo" />
       </div>
       <div>

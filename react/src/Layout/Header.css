@@ -6,7 +6,9 @@
     background-color: #333;
     color: #fff;
     text-align: right;
-    width: auto;
+    justify-content: flex-end; /* Cambio realizado aquí */
+    text-align: end;
+    width: 99%;
   }
   
   .header-container h1 {
