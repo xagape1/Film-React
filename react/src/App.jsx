@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginRegister from './auth/LoginRegister'
 import { UserContext } from "./userContext";
 import Header from './Layout/Header';
-import Footer from './Layout/Footer';
 import NotFound from "./NotFound";
 import ProfileCreate from './Profiles/ProfileCreate';
 import ProfilesGrid from './Profiles/ProfilesGrid';
@@ -12,6 +11,7 @@ import { Provider } from 'react-redux';
 import FilmStyle from './Style/FilmStyle';
 import Payments from './Style/Payments';
 import { store } from './store';
+import Menu from './Style/Menu';
 
 function App() {
   let [authToken, setAuthToken] = useState("");
@@ -32,10 +32,11 @@ function App() {
                 <Route path="/profiles" element={<ProfilesGrid />} />
                 <Route path="/profiles/create" element={<ProfileCreate />} />
 
+                <Route path="/menu" element={<ProfileCreate />} />
+                
                 <Route path="/payments/" element={<Payments />} />
                 <Route path="/film/" element={<FilmStyle />} />
               </Routes>
-              <Footer />
             </>
             :
             <LoginRegister />

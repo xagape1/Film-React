@@ -66,8 +66,8 @@ const Header = () => {
     };
   }
   return (
-    <header className="netflix-container">
-      <div>
+    <header className="header-container">
+      <div className=''>
         {/* Token: <strong>{authToken}</strong> */}
         <button className="btn btn-primary btn-block mb-4" onClick={(e) => {
           sendLogout(e);
