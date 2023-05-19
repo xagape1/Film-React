@@ -9,6 +9,7 @@ const Menu = () => {
       <div>
         <Header></Header>
         <div className="menu-container">
+        <img  className="film" src="/images/logosinfilm.png" alt="Film Logo" />
           <h1 className="logo">Film Company</h1>
           <nav className="navigation">
             <Link to="/" className="nav-link">Inicio</Link>
